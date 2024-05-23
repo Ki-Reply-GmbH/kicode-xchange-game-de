@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>Spacecraft Dashboard</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+        <link rel="shortcut icon" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+
+        <!-- Bootstrap and Ares CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <link rel="stylesheet" href="assets/css/core.css">
+    </head>
+    <body>
+
+        <div id="newGameModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-container">
+                    <span class="popUpSpan">Gamer Details</span>
+                    <form id="contactForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+    
+                        <label for="company">Company Name:</label>
+                        <input type="text" id="company" name="company" required>
+    
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+    
+                        <button id="btnStartGame" type="button" class="popUpButton">Start Game</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="gameOverModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-container">
+                    <span class="popUpSpan" style="color:Red">Gamer Over!</span>
+                    <button id="btnReset" type="button" class="popUpButton">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="successModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="form-container">
+                    <span class="popUpSpan" style="color:green">Gamer Won!</span>
+                    <button id="btnNewGame" type="button" class="popUpButton">Start</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="page-container" class="modern">
+            <!-- Header -->
+            <header id="page-header">
+                <div class="h3 text-right pull-right hidden-xs">
+                    <div class="text-crystal font-w300">GAMER_LOGGED_IN</div>
+                    <div id="gamerName" class="text-success animated infinite pulse pull-right"></div>
+                </div>
+                <h1 class="h3 font-w200">
+                    <span class="text-crystal">//</span> <span class="text-header font-w300">SPACECRAFT DASHBOARD</span>
+                </h1>
+            </header>
+            <!-- END Header -->
+
+            <!-- Main Content -->
+            <main id="page-main">
+                <!-- Columns -->
+                <div class="row">
+                     
+                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
+                        <div class="box-container">
+                            <div class="box box1"> 
+                                <div class="text"> 
+                                    <h2 class="topic-heading">Pressure</h2> 
+                                    <h2 class="topic">13</h2> 
+                                </div> 
+                                <img src= "assets/img/pressure-1-48.png"
+                                    alt="Views"> 
+                            </div>
+                            <div class="box box2"> 
+                                <div class="text"> 
+                                    <h2 class="topic-heading">Oxygen</h2> 
+                                    <h2 class="topic">30.01</h2> 
+                                </div> 
+                                <img src= "assets/img/oxygen-4-48.png"
+                                    alt="Views"> 
+                            </div>
+                        </div>
+                        <div class="box-container" style="padding-top: 10px;">
+                            <div class="box box3"> 
+                                <div class="text"> 
+                                    <h2 class="topic-heading">Humidity</h2> 
+                                    <h2 class="topic">13</h2> 
+                                </div> 
+                                <img src="assets/img/humidity-6-48.png"
+                                    alt="Views"> 
+                            </div>
+                            <div class="box box4"> 
+                                <div class="text"> 
+                                    <h2 class="topic-heading">Temperature</h2> 
+                                    <h2 class="topic">30.01</h2> 
+                                </div> 
+                                <img src= "assets/img/temperature-8-48.png"
+                                    alt="Views"> 
+                            </div>
+                        </div>
+                        <div class="col-xs-6" style="padding-top:20px;width:100% !important">
+                          <div class="instructions">
+                            <ul style="padding-top:10px"> <span>Instructions:</span>
+                                <br/>
+                                <li class="li-instruct">
+                                   1. Run safety check for Ki Spaceship to be cleared for take off
+                                </li>
+                                <li class="li-instruct">
+                                   2. Check fuel levels in engine are full
+                                </li>
+                                <li class="li-instruct" style="text-align: center;">
+                                   3. Check booster rockets are fully charged
+                                </li>
+                                <li class="li-instruct">
+                                   4. Check the navigation system to have clear flight path to Home on Planet Earth
+                                </li>
+                                <li class="li-instruct">
+                                   5. Switch on super beam lights
+                                </li>
+                                <li class="li-instruct">
+                                   6. Start the ignition for launch boosters
+                                </li>
+                                <li class="li-instruct">
+                                   7. Launch
+                                </li>
+                             </ul>
+                             <button class="btn btn-xl btn-sf btnInstruct">cadarnhau cyfarwyddiadau</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-6" style="padding-top:20px;width:100% !important">
+                           
+                        </div>
+                    </div>
+                    <!-- Left Column -->
+                    <div class="col-sm-6 col-lg-3 col-lg-pull-6">
+                        <!-- Environment -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title">Environment</h2>
+                            </div>
+                            <div class="block-content">
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center">
+                                        <div class="js-pie-chart pie-chart" data-percent="50" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                            <span class="font-s16 font-w600">PSI</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <div class="text-uppercase font-w600 text-white-op">Pressure</div>
+                                        <div class="font-s36 font-w300">15.65</div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center">
+                                        <div class="js-pie-chart pie-chart" data-percent="29" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                            <span class="font-s16 font-w600">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <div class="text-uppercase font-w600 text-white-op">Oxygen</div>
+                                        <div class="font-s36 font-w300">29.15</div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center" >
+                                        <div class="js-pie-chart pie-chart" data-percent="60" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                            <span class="font-s16 font-w600">C&deg;</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8" >
+                                        <div class="text-uppercase font-w600 text-white-op">Temperature</div>
+                                        <div class="font-s36 font-w300">5.3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Environment -->
+
+                        <!-- Planets -->
+                        <div class="block">
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title">Planets</h2>
+                            </div>
+                            <div class="block-content">
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="100">
+                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="20" data-size="45" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#c07635">
+                                            <span class="font-s16 font-w600"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 "  data-class="animated fadeInRight" data-timeout="400">
+                                        <div class="text-uppercase font-w600 text-white-op">Mars</div>
+                                        <div class="font-s36 font-w300">1.67 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="200">
+                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="22" data-size="50" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#3673cc">
+                                            <span class="font-s16 font-w600"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 " data-class="animated fadeInRight" data-timeout="500">
+                                        <div class="text-uppercase font-w600 text-white-op">Earth</div>
+                                        <div class="font-s36 font-w300">1.62 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
+                                    </div>
+                                </div>
+                                <div class="row items-push overflow-hidden">
+                                    <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="300">
+                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="30" data-size="70" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#f7c880">
+                                            <span class="font-s16 font-w600"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8 "data-class="animated fadeInRight" data-timeout="600">
+                                        <div class="text-uppercase font-w600 text-white-op">Saturn</div>
+                                        <div class="font-s36 font-w300">2.22 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Planets -->
+                    </div>
+                    <!-- END Left Column -->
+
+                    <!-- Right Column -->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="timer">Bugs remaining: <span id="bugCount">3</span></div>
+                        <div class="timer flikr" id="countup">
+                            00:00:00
+                        </div>
+                        <!-- <div class="timer1">Spacecraft Design1</div> -->
+                        <div class="space">    
+                            <div class="divb" id="second"></div>
+                            <div class="divb" id="fourth"></div>
+                            <div class="divb" id="first"></div>
+                            <div class="divb" id="third"></div>                         
+                        </div> 
+                    </div>
+                    <!-- END Right Column -->
+                </div>
+                <!-- END Columns -->
+
+                <!-- Page Footer -->
+                <div class="block">
+                    <div class="block-content block-content-full font-s12 text-center ">
+                        2024 &copy; KI Reply
+                    </div>
+                </div>
+                <!-- END Page Footer -->
+            </main>
+            <!-- END Main Content -->
+        </div>
+        <!-- END Page Container -->
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.easypiechart.min.js"></script>
+        <script src="assets/js/core.js"></script>
+
+        <!-- Page JS Code -->
+        <script>
+            jQuery(function(){
+
+                Exchange.initHelpers(['easy-pie-chart']);
+          
+                $('#bugCount').text(Exchange.bugLeft);
+
+                if(localStorage.getItem('targetTime') == undefined && !Exchange.gameOver && !Exchange.userWon)
+                {
+                    Exchange.newGamePopup();
+                }
+                
+                if(localStorage.getItem('targetTime') !== null && !Exchange.userWon)
+                {
+                    Exchange.updateTimer();
+                }
+
+                if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
+                {
+                    Exchange.pauseCounter();
+                    Exchange.gameWonModal();
+                }
+
+                if(Exchange.gameOver)
+                {
+                    Exchange.gameOverPopUp();
+                    localStorage.clear();
+                }              
+            });
+             
+        </script>
+    </body>
+</html>
