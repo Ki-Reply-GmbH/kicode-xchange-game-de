@@ -3,13 +3,10 @@ html, body {
 }
 
 body {
-    color: #e8f4ff;
+    color: #000000; /* Change text color to black for better contrast with yellow background */
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    background-image: url(../img/bgsky.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background-color: yellow; /* Set background color to yellow */
 }
 
 h1, h2, h3, .h1, .h2, .h3, .heading {
