@@ -86,6 +86,10 @@ ul span{
     border-radius: 15px;
     margin-right:50px;
     width:auto;
+    background-color: #62d0f0; /* Changed to blue */
+}
+.btnInstruct:hover {
+    background-color: #4095c6; /* Darker shade of blue for hover */
 }
 
 .timer
