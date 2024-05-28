@@ -74,6 +74,11 @@ var Exchange = function() {
                 sendStart()
              });   
         },
+
+        gameWaitPopup: function(){
+            var waitGameModal = $('#waitModal'); // Get the modal
+            waitGameModal.show();
+        },
     
         gameOverPopUp: function(){
             var gameOverModal = $('#gameOverModal'); // Get the modal
@@ -126,8 +131,9 @@ var Exchange = function() {
         },
 
         pauseCounter:function(){
-            pauseTimer = !pauseTimer; //Set bool to pause the timer
+            pauseTimer = true; //Set bool to pause the timer
         },
+
 
         updateTimer:function(){
             if (!pauseTimer) {
@@ -286,10 +292,19 @@ socket.onopen = function() {
 
 socket.onmessage = function(event) {
     console.log('Message from server: ', event.data);
-    if (event.data === "hard_refresh") {
-        console.log('Performing hard refresh');
-        window.location.href=window.location.href
-        console.log('Hard refresh complete');
+    switch (event.data) {
+        case "hard_refresh":
+            console.log('Performing hard refresh');
+            window.location.href = window.location.href;
+            console.log('Hard refresh complete');
+            break;
+        case "stop_timer":
+            console.log('stopping the timer');
+            Exchange.pauseCounter();
+            break;
+        default:
+            // Handle other cases here
+            break;
     }
 };
 

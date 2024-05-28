@@ -53,6 +53,15 @@
             </div>
         </div>
 
+        <div id="waitModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="form-container">
+                    <span class="popUpSpan" id="waitMessage" style="color:orange"></span>
+                </div>
+            </div>
+        </div>
+
         <div id="successModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
@@ -296,15 +305,20 @@
                     Exchange.updateTimer();
 
                 }
+                if (localStorage.getItem('targetTime') !== null && !Exchange.userWon && Exchange.pauseCounter) {
+                    Exchange.gameWaitPopup();
+                }
 
                 if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
                 {
+                    
+                    
+                    Exchange.pauseCounter();
+
                     // Calculate the time that has already passed
                     var targetTime = parseInt(localStorage.getItem('targetTime'));
                     var currentTime = new Date().getTime();
                     var timePassed = currentTime - targetTime + 5 * 60 * 1000; // Add the original 5 minutes to get the time passed
-                    
-                    Exchange.pauseCounter();
                     Exchange.updateGamerTime(timePassed,true);
                     Exchange.gameWonModal(timePassed);
                 }
