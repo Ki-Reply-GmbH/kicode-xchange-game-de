@@ -18,8 +18,8 @@ h1, h2, h3, .h1, .h2, .h3, .heading {
     color: #e8f4ff;
 }
 
-ul span{
-    text-align: left; 
+ul span {
+    text-align: center;
     text-decoration: underline;
     font-family: 'Raleway', sans-serif;
     
@@ -193,14 +193,13 @@ ul span{
     margin-bottom: 15px;
 }
 
-.li-instruct
-{
-    text-align: left;
+.li-instruct {
+    text-align: center;
     line-height: 1.8;
     margin-bottom: 1.5rem;
     list-style-type: none;
     font-family: 'Raleway', sans-serif;
-    font-size:20px
+    font-size: 20px;
 }
 
 .instructions {
