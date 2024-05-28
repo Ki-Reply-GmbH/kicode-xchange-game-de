@@ -75,9 +75,14 @@ var Exchange = function() {
              });   
         },
 
-        gameWaitPopup: function(){
+        gameWaitPopupShow: function(){
             var waitGameModal = $('#waitModal'); // Get the modal
             waitGameModal.show();
+        },
+
+        gameWaitPopupHide: function(){
+            var waitGameModal = $('#waitModal'); // Get the modal
+            waitGameModal.hide();
         },
     
         gameOverPopUp: function(){
@@ -301,6 +306,7 @@ socket.onmessage = function(event) {
         case "stop_timer":
             console.log('stopping the timer');
             Exchange.pauseCounter();
+            Exchange.gameWaitPopup();
             break;
         default:
             // Handle other cases here

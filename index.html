@@ -57,7 +57,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="form-container">
-                    <span class="popUpSpan" id="waitMessage" style="color:orange"></span>
+                    <span class="popUpSpan" id="waitMessage" style="color:orange">Processing please wait</span>
                 </div>
             </div>
         </div>
@@ -305,16 +305,13 @@
                     Exchange.updateTimer();
 
                 }
-                if (localStorage.getItem('targetTime') !== null && !Exchange.userWon && Exchange.pauseCounter) {
-                    Exchange.gameWaitPopup();
-                }
 
                 if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
                 {
                     
                     
-                    Exchange.pauseCounter();
 
+                    Exchange.gameWaitPopupHide();
                     // Calculate the time that has already passed
                     var targetTime = parseInt(localStorage.getItem('targetTime'));
                     var currentTime = new Date().getTime();
