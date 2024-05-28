@@ -96,6 +96,14 @@ ul span{
     font-size: 40px;
 }
 
+.timer-countdown
+{
+    float:right;
+    margin-right: 40px;
+    font-family: 'Cousine', sans-serif;
+    font-size: 40px;
+}
+
 .timer1
 {
     float:right;

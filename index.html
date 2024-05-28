@@ -6,12 +6,15 @@
 
         <title>Spacecraft Dashboard</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
 
         <link rel="shortcut icon" href="assets/img/favicon.png">
         <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
 
         <!-- Web fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 
         <!-- Bootstrap and Ares CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -23,7 +26,6 @@
         <div id="newGameModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close">&times;</span>
                 <div class="form-container">
                     <span class="popUpSpan">Gamer Details</span>
                     <form id="contactForm">
@@ -36,7 +38,7 @@
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
     
-                        <button id="btnStartGame" type="button" class="popUpButton">Start Game</button>
+                        <button id="btnStartGame" type="button" class="popUpButton" disabled>Start Game</button>
                     </form>
                 </div>
             </div>
@@ -44,9 +46,8 @@
         <div id="gameOverModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close">&times;</span>
                 <div class="form-container">
-                    <span class="popUpSpan" style="color:Red">Gamer Over!</span>
+                    <span class="popUpSpan" style="color:Red">Game Over!</span>
                     <button id="btnReset" type="button" class="popUpButton">Reset</button>
                 </div>
             </div>
@@ -55,9 +56,8 @@
         <div id="successModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-                <span class="close">&times;</span>
                 <div class="form-container">
-                    <span class="popUpSpan" style="color:green">Gamer Won!</span>
+                    <span class="popUpSpan" id="gameWonMessage" style="color:green">Game Won!</span>
                     <button id="btnNewGame" type="button" class="popUpButton">Start</button>
                 </div>
             </div>
@@ -245,7 +245,7 @@
                     <!-- Right Column -->
                     <div class="col-sm-6 col-lg-3">
                         <div class="timer">Bugs remaining: <span id="bugCount">3</span></div>
-                        <div class="timer flikr" id="countup">
+                        <div class="timer-countdown flikr" id="countup">
                             00:00:00
                         </div>
                         <!-- <div class="timer1">Spacecraft Design1</div> -->
@@ -298,11 +298,13 @@
                 if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
                 {
                     Exchange.pauseCounter();
+                    Exchange.updateGamerTime($('#countup').text(),true);
                     Exchange.gameWonModal();
                 }
 
                 if(Exchange.gameOver)
                 {
+                    Exchange.updateGamerTime("",true);
                     Exchange.gameOverPopUp();
                     localStorage.clear();
                 }              
