@@ -288,23 +288,25 @@
                 if(localStorage.getItem('targetTime') == undefined && !Exchange.gameOver && !Exchange.userWon)
                 {
                     Exchange.newGamePopup();
+                    
                 }
                 
                 if(localStorage.getItem('targetTime') !== null && !Exchange.userWon)
                 {
                     Exchange.updateTimer();
+
                 }
 
                 if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
                 {
                     // Calculate the time that has already passed
-                    var targetTime = new Date(localStorage.getItem('targetTime'));
-                    var currentTime = new Date();
-                    var timePassed = targetTime - currentTime;
-                    console.log(timePassed);
+                    var targetTime = parseInt(localStorage.getItem('targetTime'));
+                    var currentTime = new Date().getTime();
+                    var timePassed = currentTime - targetTime + 5 * 60 * 1000; // Add the original 5 minutes to get the time passed
+                    
                     Exchange.pauseCounter();
-                    Exchange.updateGamerTime($('#countup').text(),true);
-                    Exchange.gameWonModal();
+                    Exchange.updateGamerTime(timePassed,true);
+                    Exchange.gameWonModal(timePassed);
                 }
 
                 if(Exchange.gameOver)

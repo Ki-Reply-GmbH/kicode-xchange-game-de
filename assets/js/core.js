@@ -89,14 +89,22 @@ var Exchange = function() {
             });
         },
 
-        gameWonModal: function(){
+        gameWonModal: function(timePassed){
             
             var successModal = $('#successModal'); // Get the modal
             var span = $('.close'); // Get the <span> element that closes the modal
             var btnNewGame = $('#btnNewGame');
 
+            // Convert timePassed from milliseconds to minutes, seconds, and milliseconds
+            var minutes = Math.floor(timePassed / 60000);
+            var seconds = ((timePassed % 60000) / 1000).toFixed(0);
+            var milliseconds = timePassed % 1000;
+
+            // Pad minutes and seconds with leading zeros if they are less than 10
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
             successModal.show();
-            $('#gameWonMessage').text("Game won - time taken: " + $('#countup').text()); 
+            $('#gameWonMessage').text("Game won - time taken: " + minutes + ":" + seconds + ":" + milliseconds);
 
             // When the user clicks on New Game
             btnNewGame.on('click', function(){
