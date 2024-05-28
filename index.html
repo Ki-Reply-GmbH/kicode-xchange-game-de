@@ -297,6 +297,11 @@
 
                 if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
                 {
+                    // Calculate the time that has already passed
+                    var targetTime = new Date(localStorage.getItem('targetTime'));
+                    var currentTime = new Date();
+                    var timePassed = targetTime - currentTime;
+                    console.log(timePassed);
                     Exchange.pauseCounter();
                     Exchange.updateGamerTime($('#countup').text(),true);
                     Exchange.gameWonModal();
