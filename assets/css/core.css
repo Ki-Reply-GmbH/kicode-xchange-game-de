@@ -23,7 +23,9 @@ ul span{
     text-decoration: underline;
     font-family: 'Raleway', sans-serif;
     
-    font-size: 30px;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .topic
@@ -201,14 +203,14 @@ ul span{
     margin-bottom: 15px;
 }
 
-.li-instruct
-{
+.li-instruct {
     text-align: left;
     line-height: 1.8;
     margin-bottom: 1.5rem;
     list-style-type: none;
     font-family: 'Raleway', sans-serif;
-    font-size:20px
+    font-size: 20px;
+}
 }
 
 .instructions {
