@@ -208,7 +208,7 @@ var Exchange = function() {
         readJsonFile:function(){
 
             const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IktJTUN0bzB0YmVuMld6TWh5ZDlPOVUwaVV1anphdHZidVkyZXBTeHNTYVkiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE2ODk5MzU3LCJuYmYiOjE3MTY4OTkzNTcsImV4cCI6MTcxNjk4NjA1NywiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZxM2hUY0Z2RzdoUG5jNDVNLzVlbTg0UUJyeWtxRTA3WTZiQTh4ZS9qbVc4c0l1aUtvUFZvZ2lVenM1cDlmRlEiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJfYndMRl9tcXBrdUVKdjNSTWFJbEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.VKsbizWn176DYqeeGH-CB5E5fzvoQW5c11hMnZY3zzAZF0c3Wz4mUynwI7F65t2lX2vyLtJfApNWr7l2q6l9cqTgPpzeXecwOFF9YkWgzKDPiIP0eHl0trgB-HhgrnGEZn7HsDsVQfFs7b8RBSlCEdK7vmZC-bTqM0dWePe3UWVfUQLolHxkNBGKfYOsqQS_scmc_njNTGIMEjRL7455suVnXzIo9wk4EvzWviDTHF4wwIRfJPuACDwmeRW-pxrUlFEefnUQS6q9l01qTJwQHT9OSQO0ioYzOFeinOyiIqEKS1r5U_OoV7RNjQTUecd81CqLAwGFhm_J3LLzW4NWmw' 
-            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
+            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=EVHhNkdGng5Cv6xKY5L4nXQBv_rtxBw3y5ZFpac7FPs6Ng';
             const encodedLink = btoa(sharedLink); 
             const fileUrl = `https://graph.microsoft.com/v1.0/shares/u!${encodedLink}/root/content`;
             
@@ -224,7 +224,7 @@ var Exchange = function() {
 
         updateJsonFile:function(fileContent){
             const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IktJTUN0bzB0YmVuMld6TWh5ZDlPOVUwaVV1anphdHZidVkyZXBTeHNTYVkiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE2ODk5MzU3LCJuYmYiOjE3MTY4OTkzNTcsImV4cCI6MTcxNjk4NjA1NywiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZxM2hUY0Z2RzdoUG5jNDVNLzVlbTg0UUJyeWtxRTA3WTZiQTh4ZS9qbVc4c0l1aUtvUFZvZ2lVenM1cDlmRlEiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJfYndMRl9tcXBrdUVKdjNSTWFJbEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.VKsbizWn176DYqeeGH-CB5E5fzvoQW5c11hMnZY3zzAZF0c3Wz4mUynwI7F65t2lX2vyLtJfApNWr7l2q6l9cqTgPpzeXecwOFF9YkWgzKDPiIP0eHl0trgB-HhgrnGEZn7HsDsVQfFs7b8RBSlCEdK7vmZC-bTqM0dWePe3UWVfUQLolHxkNBGKfYOsqQS_scmc_njNTGIMEjRL7455suVnXzIo9wk4EvzWviDTHF4wwIRfJPuACDwmeRW-pxrUlFEefnUQS6q9l01qTJwQHT9OSQO0ioYzOFeinOyiIqEKS1r5U_OoV7RNjQTUecd81CqLAwGFhm_J3LLzW4NWmw'
-            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
+            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=EVHhNkdGng5Cv6xKY5L4nXQBv_rtxBw3y5ZFpac7FPs6Ng';
             const encodedLink = btoa(sharedLink);
             const updateUrl = `https://graph.microsoft.com/v1.0/shares/u!${encodedLink}/root/content`;
 
@@ -263,17 +263,17 @@ var Exchange = function() {
         updateGamerTime : async function(Time, Finished){
             try{
                 const fileContent = await Exchange.readJsonFile();
-                // gamerEmail=localStorage.getItem('gamerEmail');
 
-                // fileContent.forEach(item => {
-                //     if(item["Email-Address"] === gamerEmail)
-                //     {
-                //         item["Time"] = Time;
-                //         item["Finished"] = Finished;
-                //     }
-                // });
+                            // Convert timePassed from milliseconds to minutes, seconds, and milliseconds
+            var minutes = Math.floor(Time / 60000);
+            var seconds = ((Time % 60000) / 1000).toFixed(0);
+            var milliseconds = Time % 1000;
+
+            // Pad minutes and seconds with leading zeros if they are less than 10
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
                 var item = fileContent[fileContent.length - 1];
-                item["Time"] = Time;
+                item["Time"] = minutes + ":" + seconds + ":" + milliseconds;
                 item["Finished"] = Finished;
                 const fileUpdateResponse = await Exchange.updateJsonFile(fileContent);
                 console.log('Gamer details updated successfully');
