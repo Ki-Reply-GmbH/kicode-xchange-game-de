@@ -67,22 +67,13 @@ var Exchange = function() {
              // When the user clicks on Start Game
              btnStartGame.on('click',function()
              {
-                $('#gamerName').text($('#name').val());
+                localStorage.setItem('gamerName', $('#name').val());
+                $('#gamerName').text(localStorage.getItem('gamerName'));
                 Exchange.startTimer();
                 Exchange.addNewGamerDetails();
                 newGameModal.hide(false);
                 sendStart()
              });   
-        },
-
-        gameWaitPopupShow: function(){
-            var waitGameModal = $('#waitModal'); // Get the modal
-            waitGameModal.show();
-        },
-
-        gameWaitPopupHide: function(){
-            var waitGameModal = $('#waitModal'); // Get the modal
-            waitGameModal.hide();
         },
     
         gameOverPopUp: function(){
@@ -93,9 +84,10 @@ var Exchange = function() {
 
             // When the user clicks on Reset
             btnReset.on('click',function(){
-                $(this).text('Resetting');
+                $(this).text('Resetting...');
                 $(this).prop('disabled', true);
                 sendReset()
+                localStorage.clear()
             });
         },
 
@@ -116,9 +108,10 @@ var Exchange = function() {
             successModal.show();
             $('#gameWonMessage').text("Game won - time taken: " + minutes + ":" + seconds + ":" + milliseconds);
 
+
             // When the user clicks on New Game
             btnNewGame.on('click', function(){
-                $(this).text('Resetting');
+                $(this).text('Resetting...');
                 $(this).prop('disabled', true);
                 sendReset()
                 localStorage.clear()
@@ -136,16 +129,16 @@ var Exchange = function() {
         },
 
         pauseCounter:function(){
-            pauseTimer = true; //Set bool to pause the timer
+            pauseTimer = !pauseTimer; //Set bool to pause the timer
         },
-
 
         updateTimer:function(){
             if (!pauseTimer) {
               // Get the target time from local storage
               const targetTime = localStorage.getItem('targetTime');
+              
             
-          
+              $('#gamerName').text(localStorage.getItem('gamerName'));
               if (targetTime) {
                 // Calculate the remaining time
                 const now = new Date().getTime();
@@ -168,6 +161,7 @@ var Exchange = function() {
                   $('#countup').text('Game Over'); // Display "Game Over"
                   Exchange.gameOverPopUp(); // Call the function to show the game over pop-up
                   localStorage.removeItem('targetTime'); // Remove the target time from local storage
+                  localStorage.removeItem('gamerName');
                 }
               } else {
                   $('#countup').text('Game Over'); // Display "Game Over" if there is no target time
@@ -214,8 +208,7 @@ var Exchange = function() {
         readJsonFile:function(){
 
             const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IktJTUN0bzB0YmVuMld6TWh5ZDlPOVUwaVV1anphdHZidVkyZXBTeHNTYVkiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE2ODk5MzU3LCJuYmYiOjE3MTY4OTkzNTcsImV4cCI6MTcxNjk4NjA1NywiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZxM2hUY0Z2RzdoUG5jNDVNLzVlbTg0UUJyeWtxRTA3WTZiQTh4ZS9qbVc4c0l1aUtvUFZvZ2lVenM1cDlmRlEiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJfYndMRl9tcXBrdUVKdjNSTWFJbEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.VKsbizWn176DYqeeGH-CB5E5fzvoQW5c11hMnZY3zzAZF0c3Wz4mUynwI7F65t2lX2vyLtJfApNWr7l2q6l9cqTgPpzeXecwOFF9YkWgzKDPiIP0eHl0trgB-HhgrnGEZn7HsDsVQfFs7b8RBSlCEdK7vmZC-bTqM0dWePe3UWVfUQLolHxkNBGKfYOsqQS_scmc_njNTGIMEjRL7455suVnXzIo9wk4EvzWviDTHF4wwIRfJPuACDwmeRW-pxrUlFEefnUQS6q9l01qTJwQHT9OSQO0ioYzOFeinOyiIqEKS1r5U_OoV7RNjQTUecd81CqLAwGFhm_J3LLzW4NWmw' 
-             // 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
-            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=EVHhNkdGng5Cv6xKY5L4nXQBv_rtxBw3y5ZFpac7FPs6Ng';
+            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
             const encodedLink = btoa(sharedLink); 
             const fileUrl = `https://graph.microsoft.com/v1.0/shares/u!${encodedLink}/root/content`;
             
@@ -231,7 +224,7 @@ var Exchange = function() {
 
         updateJsonFile:function(fileContent){
             const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IktJTUN0bzB0YmVuMld6TWh5ZDlPOVUwaVV1anphdHZidVkyZXBTeHNTYVkiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE2ODk5MzU3LCJuYmYiOjE3MTY4OTkzNTcsImV4cCI6MTcxNjk4NjA1NywiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZxM2hUY0Z2RzdoUG5jNDVNLzVlbTg0UUJyeWtxRTA3WTZiQTh4ZS9qbVc4c0l1aUtvUFZvZ2lVenM1cDlmRlEiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJfYndMRl9tcXBrdUVKdjNSTWFJbEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.VKsbizWn176DYqeeGH-CB5E5fzvoQW5c11hMnZY3zzAZF0c3Wz4mUynwI7F65t2lX2vyLtJfApNWr7l2q6l9cqTgPpzeXecwOFF9YkWgzKDPiIP0eHl0trgB-HhgrnGEZn7HsDsVQfFs7b8RBSlCEdK7vmZC-bTqM0dWePe3UWVfUQLolHxkNBGKfYOsqQS_scmc_njNTGIMEjRL7455suVnXzIo9wk4EvzWviDTHF4wwIRfJPuACDwmeRW-pxrUlFEefnUQS6q9l01qTJwQHT9OSQO0ioYzOFeinOyiIqEKS1r5U_OoV7RNjQTUecd81CqLAwGFhm_J3LLzW4NWmw'
-            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=EVHhNkdGng5Cv6xKY5L4nXQBv_rtxBw3y5ZFpac7FPs6Ng';
+            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
             const encodedLink = btoa(sharedLink);
             const updateUrl = `https://graph.microsoft.com/v1.0/shares/u!${encodedLink}/root/content`;
 
@@ -270,15 +263,18 @@ var Exchange = function() {
         updateGamerTime : async function(Time, Finished){
             try{
                 const fileContent = await Exchange.readJsonFile();
-                gamerEmail=localStorage.getItem('gamerEmail');
+                // gamerEmail=localStorage.getItem('gamerEmail');
 
-                fileContent.forEach(item => {
-                    if(item["Email-Address"] === gamerEmail)
-                    {
-                        item["Time"] = Time;
-                        item["Finished"] = Finished;
-                    }
-                });
+                // fileContent.forEach(item => {
+                //     if(item["Email-Address"] === gamerEmail)
+                //     {
+                //         item["Time"] = Time;
+                //         item["Finished"] = Finished;
+                //     }
+                // });
+                var item = fileContent[fileContent.length - 1];
+                item["Time"] = Time;
+                item["Finished"] = Finished;
                 const fileUpdateResponse = await Exchange.updateJsonFile(fileContent);
                 console.log('Gamer details updated successfully');
             }
@@ -297,20 +293,10 @@ socket.onopen = function() {
 
 socket.onmessage = function(event) {
     console.log('Message from server: ', event.data);
-    switch (event.data) {
-        case "hard_refresh":
-            console.log('Performing hard refresh');
-            window.location.href = window.location.href;
-            console.log('Hard refresh complete');
-            break;
-        case "stop_timer":
-            console.log('stopping the timer');
-            Exchange.pauseCounter();
-            Exchange.gameWaitPopup();
-            break;
-        default:
-            // Handle other cases here
-            break;
+    if (event.data === "hard_refresh") {
+        console.log('Performing hard refresh');
+        window.location.href=window.location.href
+        console.log('Hard refresh complete');
     }
 };
 

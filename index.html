@@ -48,16 +48,7 @@
             <div class="modal-content">
                 <div class="form-container">
                     <span class="popUpSpan" style="color:Red">Game Over!</span>
-                    <button id="btnReset" type="button" class="popUpButton">Reset</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="waitModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="form-container">
-                    <span class="popUpSpan" id="waitMessage" style="color:orange">Processing please wait</span>
+                    <button id="btnReset" type="button" class="popUpButton">Reset and Start New Game</button>
                 </div>
             </div>
         </div>
@@ -67,7 +58,7 @@
             <div class="modal-content">
                 <div class="form-container">
                     <span class="popUpSpan" id="gameWonMessage" style="color:green">Game Won!</span>
-                    <button id="btnNewGame" type="button" class="popUpButton">Start</button>
+                    <button id="btnNewGame" type="button" class="popUpButton">Reset and Start New Game</button>
                 </div>
             </div>
         </div>
@@ -297,26 +288,22 @@
                 if(localStorage.getItem('targetTime') == undefined && !Exchange.gameOver && !Exchange.userWon)
                 {
                     Exchange.newGamePopup();
-                    
                 }
                 
                 if(localStorage.getItem('targetTime') !== null && !Exchange.userWon)
                 {
                     Exchange.updateTimer();
-
                 }
 
                 if(localStorage.getItem('targetTime') !== null && Exchange.userWon)
                 {
-                    
-                    
-
-                    Exchange.gameWaitPopupHide();
                     // Calculate the time that has already passed
                     var targetTime = parseInt(localStorage.getItem('targetTime'));
                     var currentTime = new Date().getTime();
                     var timePassed = currentTime - targetTime + 5 * 60 * 1000; // Add the original 5 minutes to get the time passed
-                    Exchange.updateGamerTime(timePassed,true);
+
+                    Exchange.pauseCounter();
+                    Exchange.updateGamerTime(timePassed, true);
                     Exchange.gameWonModal(timePassed);
                 }
 
