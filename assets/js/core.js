@@ -133,7 +133,9 @@ var Exchange = function() {
         },
 
         updateTimer:function(){
-            if (!pauseTimer) {
+            console.log('pauseTimer:', pauseTimer);
+            if (!pauseTimer) {console.log('time out:', pauseTimer);
+              console.log('no time out');
               // Get the target time from local storage
               const targetTime = localStorage.getItem('targetTime');
               
@@ -168,6 +170,7 @@ var Exchange = function() {
               }
             }
             // Update using requestAnimationFrame
+            console.log('time out');
             setTimeout(Exchange.updateTimer, 10);
             //requestAnimationFrame(Exchange.updateTimer);
         },
@@ -301,6 +304,13 @@ socket.onmessage = function(event) {
     console.log('Message from server: ', event.data);
     if (event.data === "hard_refresh") {
         console.log('Performing hard refresh');
+        window.location.href=window.location.href
+        console.log('Hard refresh complete');
+    } else if (event.data === "stop_timer") {
+        console.log('Stopping the timer');
+        Exchange.pauseCounter();
+
+        console.log('Performing hard refresh within stop_timer');
         window.location.href=window.location.href
         console.log('Hard refresh complete');
     }
