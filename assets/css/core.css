@@ -3,10 +3,10 @@ html, body {
 }
 
 body {
-    color: #333; /* Updated text color for better contrast on white background */
+    color: #e8f4ff;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    background: #fff; /* Changed background to white */
+    background: radial-gradient(#ced4fd, #03051e);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -189,6 +189,7 @@ ul span{
     padding: 20px 20px 1px;
     max-width: 100%;
     overflow-x: visible;
+    font-family: 'Raleway', sans-serif;
 }
 
 .block-content.block-content-full {
@@ -303,7 +304,7 @@ ul span{
     border: 4px solid rgba(255, 255, 255, .1);
     } 
 .box4 { 
-    background-color: rgba(0, 0, 0, .15);
+    background-color:pink;
     border: 4px solid rgba(255, 255, 255, .1);
     } 
         
