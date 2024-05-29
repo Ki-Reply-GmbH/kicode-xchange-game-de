@@ -1,8 +1,8 @@
 var Exchange = function() {
 
-    let bugLeft = '1';                
+    let bugLeft = '0';                
     let gameOver = false;
-    let userWon = false;
+    let userWon = true;
     let pauseTimer = false;
     
     var uiHelperEasyPieChart = function(){
@@ -262,19 +262,25 @@ var Exchange = function() {
 
         updateGamerTime : async function(Time, Finished){
             try{
-                const fileContent = await Exchange.readJsonFile();
+            const fileContent = await Exchange.readJsonFile();
+            var item = fileContent[fileContent.length - 1];
 
-                            // Convert timePassed from milliseconds to minutes, seconds, and milliseconds
-            var minutes = Math.floor(Time / 60000);
-            var seconds = ((Time % 60000) / 1000).toFixed(0);
-            var milliseconds = Time % 1000;
+            if (Time === "") {
+                item["Time"] = "";
+            } else {
+                // Convert timePassed from milliseconds to minutes, seconds, and milliseconds
+                var minutes = Math.floor(Time / 60000);
+                var seconds = ((Time % 60000) / 1000).toFixed(0);
+                var milliseconds = Time % 1000;
 
-            // Pad minutes and seconds with leading zeros if they are less than 10
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-                var item = fileContent[fileContent.length - 1];
+                // Pad minutes and seconds with leading zeros if they are less than 10
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
                 item["Time"] = minutes + ":" + seconds + ":" + milliseconds;
-                item["Finished"] = Finished;
+            }
+
+            item["Finished"] = Finished;
                 const fileUpdateResponse = await Exchange.updateJsonFile(fileContent);
                 console.log('Gamer details updated successfully');
             }
