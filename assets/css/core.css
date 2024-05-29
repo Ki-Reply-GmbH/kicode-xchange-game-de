@@ -262,7 +262,7 @@ ul span{
     background-repeat: no-repeat;
     background-image:url(../img/11.png);
     background-size: contain;
-    transform:rotate(360deg)
+    transform:rotate(270deg)
 }
 
 .box-container { 
