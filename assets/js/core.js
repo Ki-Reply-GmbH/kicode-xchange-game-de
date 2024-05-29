@@ -1,7 +1,7 @@
 var Exchange = function() {
 
     let bugLeft = '1';                
-    let gameOver = false;
+    let gameOver = true;
     let userWon = false;
     let pauseTimer = false;
     
