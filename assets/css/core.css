@@ -240,25 +240,26 @@ ul span{
     background-repeat: no-repeat;
     clear: both;
     background-image: url(../img/00.png);
-    transform:rotate(360deg)
+    transform:rotate(0deg); /* Correct orientation */
 }
 #second
 {
     background-repeat: no-repeat;
     background-image: url(../img/10.png);
-    transform:rotate(270deg)
+    transform:rotate(0deg); /* Correct orientation */
 }
 #third {
+
    
     background-repeat: no-repeat;
     background-image: url(../img/01.png);
-    transform:rotate(270deg)
+    transform:rotate(0deg); /* Correct orientation */
 }
 #fourth
 {
     background-repeat: no-repeat;
     background-image:url(../img/11.png);
-    transform:rotate(270deg)
+    transform:rotate(0deg); /* Correct orientation */
 }
 
 .box-container { 
