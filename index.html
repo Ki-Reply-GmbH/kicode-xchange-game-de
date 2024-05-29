@@ -29,15 +29,20 @@
                 <div class="form-container">
                     <span class="popUpSpan">Gamer Details</span>
                     <form id="contactForm">
+                        <label for="background">Choose a Background:</label>
+                        <select id="background" name="background" onchange="updateBackground(this.value)">
+                            <option value="default">Default</option>
+                            <option value="fancy">Fancy</option>
+                        </select>
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
-    
+
                         <label for="company">Company Name:</label>
                         <input type="text" id="company" name="company" required>
-    
+
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
-    
+
                         <button id="btnStartGame" type="button" class="popUpButton" disabled>Start Game</button>
                     </form>
                 </div>
@@ -81,7 +86,7 @@
             <main id="page-main">
                 <!-- Columns -->
                 <div class="row">
-                     
+
                     <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
                         <div class="box-container">
                             <div class="box box1"> 
@@ -149,7 +154,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6" style="padding-top:20px;width:100% !important">
-                           
+
                         </div>
                     </div>
                     <!-- Left Column -->
@@ -279,17 +284,21 @@
 
         <!-- Page JS Code -->
         <script>
+            function updateBackground(image) {
+                var imageUrl = image === 'fancy' ? 'url(assets/img/fancy-background.jpg)' : 'radial-gradient(#ced4fd, #03051e)';
+                document.body.style.backgroundImage = imageUrl;
+            }
             jQuery(function(){
 
                 Exchange.initHelpers(['easy-pie-chart']);
-          
+
                 $('#bugCount').text(Exchange.bugLeft);
 
                 if(localStorage.getItem('targetTime') == undefined && !Exchange.gameOver && !Exchange.userWon)
                 {
                     Exchange.newGamePopup();
                 }
-                
+
                 if(localStorage.getItem('targetTime') !== null && !Exchange.userWon)
                 {
                     Exchange.updateTimer();
@@ -314,7 +323,7 @@
                     localStorage.clear();
                 }              
             });
-             
+
         </script>
     </body>
 </html>

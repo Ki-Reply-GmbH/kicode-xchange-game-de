@@ -6,7 +6,7 @@ body {
     color: #e8f4ff;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    background: radial-gradient(#ced4fd, #03051e);
+    background-image: radial-gradient(#ced4fd, #03051e);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
