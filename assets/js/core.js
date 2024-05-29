@@ -305,7 +305,11 @@ socket.onmessage = function(event) {
         console.log('Hard refresh complete');
     } else if (event.data === "stop_timer") {
         console.log('Stopping the timer');
-        pauseTimer = true;
+        Exchange.pauseCounter();
+
+        console.log('Performing hard refresh within stop_timer');
+        window.location.href=window.location.href
+        console.log('Hard refresh complete');
     }
 };
 
