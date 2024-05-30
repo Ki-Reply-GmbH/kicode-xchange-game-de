@@ -122,18 +122,19 @@ var Exchange = function() {
         },
 
         startTimer:function(){
-            if (localStorage.getItem('pauseTimer') === 'true') {
-                console.log('Not starting timer - timer is paused');
-                return;
+            if (localStorage.getItem('keepTime') === null) {
+
+                console.log('Starting the timer');
+
+                const targetTime = new Date().getTime() + 5 * 60 * 1000; // Set the target time for the countdown
+                localStorage.setItem('targetTime', targetTime); // Store the target time in local storage
+
+                // Update the timer display
+                //updateTimerDisplay();
+                Exchange.updateTimer();
+            } else {
+                $('#countup').text(localStorage.getItem('keepTime')); // Update the timre value with the value before the refresh
             }
-            console.log('Starting the timer');
-
-            const targetTime = new Date().getTime() + 5 * 60 * 1000; // Set the target time for the countdown
-            localStorage.setItem('targetTime', targetTime); // Store the target time in local storage
-
-            // Update the timer display
-            //updateTimerDisplay();
-            Exchange.updateTimer();
         },
 
         pauseCounter:function(){
@@ -321,6 +322,8 @@ socket.onmessage = function(event) {
     } else if (event.data === "stop_timer") {
         console.log('Stopping the timer');
         localStorage.setItem('pauseTimer', 'true');
+
+        localStorage.setItem('keepTime', $('#countup').text());
 
         console.log('Performing hard refresh within stop_timer');
         window.location.href=window.location.href
