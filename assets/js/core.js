@@ -1,10 +1,10 @@
-let pauseTimer = false; // Global variable to pause the timer
-
 var Exchange = function() {
 
     let bugLeft = '1';                
     let gameOver = false;
     let userWon = false;
+    localStorage.setItem('pauseTimer', 'false');
+
     
     var uiHelperEasyPieChart = function(){
         jQuery('.js-pie-chart').easyPieChart({
@@ -130,10 +130,12 @@ var Exchange = function() {
         },
 
         pauseCounter:function(){
-            pauseTimer = !pauseTimer; //Set bool to pause the timer
+            let pauseTimer = localStorage.getItem('pauseTimer'); 
+            localStorage.setItem('pauseTimer', !pauseTimer);
         },
 
         updateTimer:function(){
+            let pauseTimer = localStorage.getItem('pauseTimer'); 
             console.log('pauseTimer:', pauseTimer);
             if (!pauseTimer) {
               // Get the target time from local storage
@@ -307,7 +309,7 @@ socket.onmessage = function(event) {
         console.log('Hard refresh complete');
     } else if (event.data === "stop_timer") {
         console.log('Stopping the timer');
-        pauseTimer = true;
+        localStorage.setItem('pauseTimer', 'true');
 
         console.log('Performing hard refresh within stop_timer');
         window.location.href=window.location.href
