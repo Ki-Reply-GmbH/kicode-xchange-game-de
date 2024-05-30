@@ -3,10 +3,10 @@ html, body {
 }
 
 body {
-    color: #e8f4ff;
+    color: #333;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    background: radial-gradient(#ced4fd, #03051e);
+    background: #ffffff; /* White background */
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -157,8 +157,8 @@ ul span{
 /* Blocks */
 .block {
     margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, .15);
-    border-left: 4px solid rgba(255, 255, 255, .1);
+    background-color: #ffffff; /* White background for blocks */
+    border-left: 4px solid rgba(0, 0, 0, .1);
 }
 
 .block-header {
@@ -213,8 +213,8 @@ ul span{
 
 .instructions {
     position: relative;
-    background-color: rgba(0, 0, 0, .15);
-    border-left: 4px solid rgba(255, 255, 255, .1);
+    background-color: #ffffff; /* White background for instructions */
+    border-left: 4px solid rgba(0, 0, 0, .1);
     width: 100% !important;
     height: 508px;
 }
