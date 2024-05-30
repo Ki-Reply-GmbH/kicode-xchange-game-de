@@ -309,6 +309,8 @@ ul span{
         
 .box img { 
     height: 50px; 
+    width: auto;  /* Ensure the width adjusts to maintain aspect ratio */
+    object-fit: contain;  /* Prevent distortion by fitting the content within the box */
     } 
 
 .box .text { 
