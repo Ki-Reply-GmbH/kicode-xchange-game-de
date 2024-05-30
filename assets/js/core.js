@@ -128,7 +128,7 @@ var Exchange = function() {
         startTimer:function(){
             console.log('Starting the timer');
 
-            const targetTime = new Date().getTime() + 5 * 60 * 1000; // Set the target time for the countdown
+            const targetTime = new Date().getTime() + 10 * 60 * 1000; // Set the target time for the countdown
             localStorage.setItem('targetTime', targetTime); // Store the target time in local storage
 
             // Update the timer display
