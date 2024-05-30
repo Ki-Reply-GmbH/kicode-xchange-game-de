@@ -3,7 +3,9 @@ var Exchange = function() {
     let bugLeft = '1';                
     let gameOver = false;
     let userWon = false;
-    localStorage.setItem('pauseTimer', 'false');
+    if (localStorage.getItem('pauseTimer') === null) {
+        localStorage.setItem('pauseTimer', 'false');
+    }
 
     
     var uiHelperEasyPieChart = function(){
