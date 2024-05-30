@@ -133,6 +133,7 @@ var Exchange = function() {
                 //updateTimerDisplay();
                 Exchange.updateTimer();
             } else {
+                console.log('Setting timer to previous value before refresh');
                 $('#countup').text(localStorage.getItem('keepTime')); // Update the timre value with the value before the refresh
             }
         },
