@@ -6,6 +6,10 @@ var Exchange = function() {
     if (localStorage.getItem('pauseTimer') === null) {
         localStorage.setItem('pauseTimer', 'false');
     }
+    if (localStorage.getItem('keepTime') !== null) {
+        console.log('keepTime value:', localStorage.getItem('keepTime'));
+        $('#countup').text(localStorage.getItem('keepTime')); // Update the timre value with the value before the refresh
+    }
 
     
     var uiHelperEasyPieChart = function(){
@@ -122,21 +126,14 @@ var Exchange = function() {
         },
 
         startTimer:function(){
-            if (localStorage.getItem('keepTime') === null) {
+            console.log('Starting the timer');
 
-                console.log('Starting the timer');
+            const targetTime = new Date().getTime() + 5 * 60 * 1000; // Set the target time for the countdown
+            localStorage.setItem('targetTime', targetTime); // Store the target time in local storage
 
-                const targetTime = new Date().getTime() + 5 * 60 * 1000; // Set the target time for the countdown
-                localStorage.setItem('targetTime', targetTime); // Store the target time in local storage
-
-                // Update the timer display
-                //updateTimerDisplay();
-                Exchange.updateTimer();
-            } else {
-                console.log('Setting timer to previous value before refresh');
-                console.log('keepTime in startTime:', localStorage.getItem('keepTime'));
-                $('#countup').text(localStorage.getItem('keepTime')); // Update the timre value with the value before the refresh
-            }
+            // Update the timer display
+            //updateTimerDisplay();
+            Exchange.updateTimer();
         },
 
         pauseCounter:function(){
