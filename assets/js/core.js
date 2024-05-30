@@ -1,9 +1,10 @@
+let pauseTimer = false; // Global variable to pause the timer
+
 var Exchange = function() {
 
     let bugLeft = '1';                
     let gameOver = false;
     let userWon = false;
-    let pauseTimer = false;
     
     var uiHelperEasyPieChart = function(){
         jQuery('.js-pie-chart').easyPieChart({
