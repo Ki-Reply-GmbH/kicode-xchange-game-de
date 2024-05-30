@@ -236,28 +236,28 @@ ul span{
     background:#c07635;
 }
 
-#first{
+#bottom-left{
     background-repeat: no-repeat;
     clear: both;
     background-image: url(../img/00.png);
     background-size: contain;
     transform:rotate(270deg)
 }
-#second
+#top-left
 {
     background-repeat: no-repeat;
     background-image: url(../img/10.png);
     background-size: contain;
     transform:rotate(360deg)
 }
-#third {
+#bottom-right {
    
     background-repeat: no-repeat;
     background-image: url(../img/01.png);
     background-size: contain;
     transform:rotate(360deg)
 }
-#fourth
+#top-right
 {
     background-repeat: no-repeat;
     background-image:url(../img/11.png);
