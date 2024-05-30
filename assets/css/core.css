@@ -201,14 +201,13 @@ ul span{
     margin-bottom: 15px;
 }
 
-.li-instruct
-{
-    text-align: left;
+.li-instruct {
+    text-align: left; /* Ensures text is aligned to the left */
     line-height: 1.8;
     margin-bottom: 1.5rem;
-    list-style-type: none;
+    list-style-type: none; /* Removes bullet points for a cleaner look */
     font-family: 'Raleway', sans-serif;
-    font-size:20px
+    font-size: 20px;
 }
 
 .instructions {
