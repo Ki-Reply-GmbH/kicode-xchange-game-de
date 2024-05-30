@@ -142,7 +142,7 @@ var Exchange = function() {
             if (!pauseTimer) {
               // Get the target time from local storage
               const targetTime = localStorage.getItem('targetTime');
-              
+              console.log('targetTime:', targetTime);
             
               $('#gamerName').text(localStorage.getItem('gamerName'));
               if (targetTime) {
@@ -157,6 +157,8 @@ var Exchange = function() {
           
                 const millisecondsText = milliseconds.toString().padStart(3, '0').slice(0, 2); // Ensure milliseconds are displayed with two digits
                 const timerText = `${minutes}:${seconds.toString().padStart(2, '0')}:${millisecondsText}`;
+                console.log('timerText:', timerText);
+                console.log('#countup:', $('#countup').text());
                 // document.getElementById('countup').textContent
                 if ($('#countup').text() !== timerText) {
                     $('#countup').text(timerText);
