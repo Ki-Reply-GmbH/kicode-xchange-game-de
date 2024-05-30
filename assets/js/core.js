@@ -137,7 +137,7 @@ var Exchange = function() {
         },
 
         updateTimer:function(){
-            let pauseTimer = localStorage.getItem('pauseTimer'); 
+            let pauseTimer = localStorage.getItem('pauseTimer') === 'true'; 
             console.log('pauseTimer:', pauseTimer);
             if (!pauseTimer) {
               // Get the target time from local storage
