@@ -134,6 +134,7 @@ var Exchange = function() {
                 Exchange.updateTimer();
             } else {
                 console.log('Setting timer to previous value before refresh');
+                console.log('keepTime in startTime:', localStorage.getItem('keepTime'));
                 $('#countup').text(localStorage.getItem('keepTime')); // Update the timre value with the value before the refresh
             }
         },
@@ -145,13 +146,9 @@ var Exchange = function() {
 
         updateTimer:function(){
             let pauseTimer = localStorage.getItem('pauseTimer') === 'true'; 
-            console.log('pauseTimer:', pauseTimer);
-            console.log('type(pauseTimer)', typeof(pauseTimer));
-            console.log('!pauseTimer', !pauseTimer);
             if (!pauseTimer) {
               // Get the target time from local storage
               const targetTime = localStorage.getItem('targetTime');
-              console.log('targetTime:', targetTime);
             
               $('#gamerName').text(localStorage.getItem('gamerName'));
               if (targetTime) {
@@ -325,6 +322,7 @@ socket.onmessage = function(event) {
         localStorage.setItem('pauseTimer', 'true');
 
         localStorage.setItem('keepTime', $('#countup').text());
+        console.log('keepTime in socket.onmessage:', localStorage.getItem('keepTime'));
 
         console.log('Performing hard refresh within stop_timer');
         window.location.href=window.location.href
