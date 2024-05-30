@@ -300,7 +300,7 @@
                     // Calculate the time that has already passed
                     var targetTime = parseInt(localStorage.getItem('targetTime'));
                     var currentTime = new Date().getTime();
-                    var timePassed = currentTime - targetTime + 5 * 60 * 1000; // Add the original 5 minutes to get the time passed
+                    var timePassed = currentTime - targetTime + 10 * 60 * 1000; // Add the original 5 minutes to get the time passed
 
                     Exchange.pauseCounter();
                     Exchange.updateGamerTime(timePassed, true);
