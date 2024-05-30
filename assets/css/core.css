@@ -3,10 +3,10 @@ html, body {
 }
 
 body {
-    color: #e8f4ff;
+    color: #333; /* Changed text color for better contrast on white background */
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    background: radial-gradient(#ced4fd, #03051e);
+    background: #fff; /* White background */
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
