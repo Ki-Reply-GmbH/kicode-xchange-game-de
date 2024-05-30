@@ -140,6 +140,7 @@ var Exchange = function() {
             let pauseTimer = localStorage.getItem('pauseTimer') === 'true'; 
             console.log('pauseTimer:', pauseTimer);
             console.log('type(pauseTimer)', typeof(pauseTimer));
+            console.log('!pauseTimer', !pauseTimer);
             if (!pauseTimer) {
               // Get the target time from local storage
               const targetTime = localStorage.getItem('targetTime');
