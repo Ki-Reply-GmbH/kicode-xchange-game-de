@@ -361,7 +361,7 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color:black;
+    color: #e8f4ff; /* Consistent with other text elements for uniformity */
     font-family: 'Raleway', sans-serif;
 }
 
