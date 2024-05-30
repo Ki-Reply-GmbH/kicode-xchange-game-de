@@ -122,8 +122,11 @@ var Exchange = function() {
         },
 
         startTimer:function(){
-            if (localStorage.getItem('pauseTimer') === 'true') return;
-            
+            if (localStorage.getItem('pauseTimer') === 'true') {
+                console.log('Not starting timer - timer is paused');
+                return;
+            }
+
             const targetTime = new Date().getTime() + 5 * 60 * 1000; // Set the target time for the countdown
             localStorage.setItem('targetTime', targetTime); // Store the target time in local storage
 
