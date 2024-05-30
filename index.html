@@ -38,7 +38,15 @@
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
     
-                        <button id="btnStartGame" type="button" class="popUpButton" disabled>Start Game</button>
+                        <button id="btnStartGame" type="button" class="popUpButton">Start Game</button>
+                        <script>
+                            document.getElementById('contactForm').addEventListener('change', function() {
+                                var name = document.getElementById('name').value;
+                                var company = document.getElementById('company').value;
+                                var email = document.getElementById('email').value;
+                                document.getElementById('btnStartGame').disabled = !(name && company && email);
+                            });
+                        </script>
                     </form>
                 </div>
             </div>
@@ -318,3 +326,13 @@
         </script>
     </body>
 </html>
+                        <script>
+                            document.getElementById('btnStartGame').addEventListener('click', function() {
+                                document.getElementById('newGameModal').style.display = 'block';
+                            });
+                            window.onclick = function(event) {
+                                if (event.target.className === 'modal') {
+                                    event.target.style.display = 'none';
+                                }
+                            }
+                        </script>
