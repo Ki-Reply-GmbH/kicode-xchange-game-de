@@ -144,7 +144,7 @@ var Exchange = function() {
             var t = diffMinutes.toString().padStart(2, '0') + ":" + diffSeconds.toString().padStart(2, '0') + ":" + Math.floor(diffMillis / 10).toString().padStart(2, '0');
         
             return t;
-        }
+        },
 
         startTimer:function(){
             console.log('Starting the timer');
