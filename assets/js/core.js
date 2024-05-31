@@ -1,6 +1,6 @@
 var Exchange = function() {
 
-    let bugLeft = '1';                
+    let bugLeft = '5';                
     let gameOver = false;
     let userWon = false;
     if (localStorage.getItem('pauseTimer') === null) {
@@ -124,23 +124,23 @@ var Exchange = function() {
         },
 
         calculateTimeDifference: function(time_left, startMinutes) {
-            // Konvertieren Sie die Zeitangabe time_left in Millisekunden
+            // Convert the time_left to milliseconds
             var timeParts = time_left.split(':');
             var timeMillis = (+timeParts[0]) * 60 * 1000 + (+timeParts[1]) * 1000 + (+timeParts[2]);
         
-            // Konvertieren Sie die Startzeit in Millisekunden
+            // Convert start time to milliseconds
             var startMillis = startMinutes * 60 * 1000;
         
-            // Berechnen Sie die Differenz in Millisekunden
+            // Calculate the difference in milliseconds
             var diffMillis = startMillis - timeMillis;
         
-            // Konvertieren Sie die Differenz in Millisekunden zurück in das Format Minuten:Sekunden:Millisekunden
+            // Convert the difference in milliseconds back to the format minutes:seconds:milliseconds
             var diffMinutes = Math.floor(diffMillis / (60 * 1000));
             diffMillis -= diffMinutes * 60 * 1000;
             var diffSeconds = Math.floor(diffMillis / 1000);
             diffMillis -= diffSeconds * 1000;
         
-            // Erstellen Sie den resultierenden String und füllen Sie die Minuten, Sekunden und Millisekunden auf zwei Stellen auf
+            // Create the resulting string and fill the minutes, seconds and milliseconds to two digits
             var t = diffMinutes.toString().padStart(2, '0') + ":" + diffSeconds.toString().padStart(2, '0') + ":" + Math.floor(diffMillis / 10).toString().padStart(2, '0');
         
             return t;
@@ -237,8 +237,8 @@ var Exchange = function() {
 
         readJsonFile:function(){
 
-            const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IktJTUN0bzB0YmVuMld6TWh5ZDlPOVUwaVV1anphdHZidVkyZXBTeHNTYVkiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE2ODk5MzU3LCJuYmYiOjE3MTY4OTkzNTcsImV4cCI6MTcxNjk4NjA1NywiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZxM2hUY0Z2RzdoUG5jNDVNLzVlbTg0UUJyeWtxRTA3WTZiQTh4ZS9qbVc4c0l1aUtvUFZvZ2lVenM1cDlmRlEiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJfYndMRl9tcXBrdUVKdjNSTWFJbEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.VKsbizWn176DYqeeGH-CB5E5fzvoQW5c11hMnZY3zzAZF0c3Wz4mUynwI7F65t2lX2vyLtJfApNWr7l2q6l9cqTgPpzeXecwOFF9YkWgzKDPiIP0eHl0trgB-HhgrnGEZn7HsDsVQfFs7b8RBSlCEdK7vmZC-bTqM0dWePe3UWVfUQLolHxkNBGKfYOsqQS_scmc_njNTGIMEjRL7455suVnXzIo9wk4EvzWviDTHF4wwIRfJPuACDwmeRW-pxrUlFEefnUQS6q9l01qTJwQHT9OSQO0ioYzOFeinOyiIqEKS1r5U_OoV7RNjQTUecd81CqLAwGFhm_J3LLzW4NWmw' 
-            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=EVHhNkdGng5Cv6xKY5L4nXQBv_rtxBw3y5ZFpac7FPs6Ng';
+            const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IlBJNWdsMk5KSDNRZHFHU0ZBZ201Y25jUW54Zy1WbVN3MnFQS1k4RV8tdmsiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE3MTQ5MTg5LCJuYmYiOjE3MTcxNDkxODksImV4cCI6MTcxNzIzNTg4OSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZPaTlKVEx2b05qdnZ1SXJBYWlKUW0vTWlpeVZjbEdKcEg2L2dBMEM5VGZ4Vk5ISTVURWZMSjZrZjhuQXhIV1EiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiI0Wm01ZzNQRU4wQ01lN3drYmt5QkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.kHx7kM37nM5pdaGDmYxhw3HvG_m0-zrF1a2za2S6ATq6bFqtl8FooLr_fBh4nLrO35BO-U8R6e693UHdj8KU5Oapa3wRNl6FPtCmFNI4pB0v4DypUKqp9BwuxWGBzrJU5iayLiJuTXDmwFSnP3sT4aNqTznsRBACWdQ5FBClqIFkmzkXD-MVJF3CPdCFYzLxKN4ZJ5oaminVKF01ult65yTDBRrC8JGKhekMGm7zxBly0IXdVtca3DIDpu4MqaWVCoHeU4WcARMBWxOKP12oYsndfT07JWNGnbwjTRWgavHKtjkurnP_ZaApWoPS2QeA_rRBOjM-zsslt8GaAEsKkQ'
+            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
             const encodedLink = btoa(sharedLink); 
             const fileUrl = `https://graph.microsoft.com/v1.0/shares/u!${encodedLink}/root/content`;
             
@@ -253,8 +253,8 @@ var Exchange = function() {
         },
 
         updateJsonFile:function(fileContent){
-            const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IktJTUN0bzB0YmVuMld6TWh5ZDlPOVUwaVV1anphdHZidVkyZXBTeHNTYVkiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE2ODk5MzU3LCJuYmYiOjE3MTY4OTkzNTcsImV4cCI6MTcxNjk4NjA1NywiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZxM2hUY0Z2RzdoUG5jNDVNLzVlbTg0UUJyeWtxRTA3WTZiQTh4ZS9qbVc4c0l1aUtvUFZvZ2lVenM1cDlmRlEiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJfYndMRl9tcXBrdUVKdjNSTWFJbEFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.VKsbizWn176DYqeeGH-CB5E5fzvoQW5c11hMnZY3zzAZF0c3Wz4mUynwI7F65t2lX2vyLtJfApNWr7l2q6l9cqTgPpzeXecwOFF9YkWgzKDPiIP0eHl0trgB-HhgrnGEZn7HsDsVQfFs7b8RBSlCEdK7vmZC-bTqM0dWePe3UWVfUQLolHxkNBGKfYOsqQS_scmc_njNTGIMEjRL7455suVnXzIo9wk4EvzWviDTHF4wwIRfJPuACDwmeRW-pxrUlFEefnUQS6q9l01qTJwQHT9OSQO0ioYzOFeinOyiIqEKS1r5U_OoV7RNjQTUecd81CqLAwGFhm_J3LLzW4NWmw'
-            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=EVHhNkdGng5Cv6xKY5L4nXQBv_rtxBw3y5ZFpac7FPs6Ng';
+            const accessToken = 'eyJ0eXAiOiJKV1QiLCJub25jZSI6IlBJNWdsMk5KSDNRZHFHU0ZBZ201Y25jUW54Zy1WbVN3MnFQS1k4RV8tdmsiLCJhbGciOiJSUzI1NiIsIng1dCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCIsImtpZCI6IkwxS2ZLRklfam5YYndXYzIyeFp4dzFzVUhIMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8yZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMvIiwiaWF0IjoxNzE3MTQ5MTg5LCJuYmYiOjE3MTcxNDkxODksImV4cCI6MTcxNzIzNTg4OSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFUUUF5LzhXQUFBQUZPaTlKVEx2b05qdnZ1SXJBYWlKUW0vTWlpeVZjbEdKcEg2L2dBMEM5VGZ4Vk5ISTVURWZMSjZrZjhuQXhIV1EiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlZhbmNlIiwiZ2l2ZW5fbmFtZSI6IkFkZWxlIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODIuMzYuMjIxLjE3MiIsIm5hbWUiOiJBZGVsZSBWYW5jZSIsIm9pZCI6ImZkMzc4NTE0LTBkMjgtNDI4Ni05MTZiLTQyZmE3YzJkMjJiZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMUQzNUYwOUVCIiwicmgiOiIwLkFVWUFYRkd3TC1nVkYwUzhvb0JhV0tqT2pBTUFBQUFBQUFBQXdBQUFBQUFBQUFDOEFCRS4iLCJzY3AiOiJGaWxlcy5SZWFkV3JpdGUuQWxsIG9wZW5pZCBwcm9maWxlIFVzZXIuUmVhZCBlbWFpbCIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6Ild1TUdab1JoWWZwSF9nS0s2elU3b0Q3TUpreEhVOW9Sb3JvRlNVbjgwbGMiLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiTkEiLCJ0aWQiOiIyZmIwNTE1Yy0xNWU4LTQ0MTctYmNhMi04MDVhNThhOGNlOGMiLCJ1bmlxdWVfbmFtZSI6IkFkZWxlVkA2Z2NmYmQub25taWNyb3NvZnQuY29tIiwidXBuIjoiQWRlbGVWQDZnY2ZiZC5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiI0Wm01ZzNQRU4wQ01lN3drYmt5QkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX2NjIjpbIkNQMSJdLCJ4bXNfc3NtIjoiMSIsInhtc19zdCI6eyJzdWIiOiJEeTJHYUN2OVRtWTRBc21ubWhWTVI5Uk5EMkpPX0ozdndISlpmZEhJSGdrIn0sInhtc190Y2R0IjoxNjQzMDk4NzIwfQ.kHx7kM37nM5pdaGDmYxhw3HvG_m0-zrF1a2za2S6ATq6bFqtl8FooLr_fBh4nLrO35BO-U8R6e693UHdj8KU5Oapa3wRNl6FPtCmFNI4pB0v4DypUKqp9BwuxWGBzrJU5iayLiJuTXDmwFSnP3sT4aNqTznsRBACWdQ5FBClqIFkmzkXD-MVJF3CPdCFYzLxKN4ZJ5oaminVKF01ult65yTDBRrC8JGKhekMGm7zxBly0IXdVtca3DIDpu4MqaWVCoHeU4WcARMBWxOKP12oYsndfT07JWNGnbwjTRWgavHKtjkurnP_ZaApWoPS2QeA_rRBOjM-zsslt8GaAEsKkQ'
+            const sharedLink = 'https://6gcfbd-my.sharepoint.com/personal/s_hausenblas_6gcfbd_onmicrosoft_com/_layouts/15/download.aspx?share=Ede283773ZFAgPVzTa5ijOUB2N4fCUPRxy1M78jPnX_hbA';
             const encodedLink = btoa(sharedLink);
             const updateUrl = `https://graph.microsoft.com/v1.0/shares/u!${encodedLink}/root/content`;
 

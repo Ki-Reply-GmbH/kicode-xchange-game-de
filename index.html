@@ -80,161 +80,170 @@
             <!-- Main Content -->
             <main id="page-main">
                 <!-- Columns -->
-                <div class="row">
+                <div class="row" id="dashboardRow">
                      
-                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
-                        <div class="box-container">
-                            <div class="box box1 button"> 
-                                <div class="text"> 
-                                    <h2 class="topic-heading">Pressure</h2> 
-                                    <h2 class="topic">13</h2> 
-                                </div> 
-                                <img src= "assets/img/pressure-1-48.png"
-                                    alt="Views"> 
+                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20" id="middleCol">
+                        <div id="buttonsContainer">
+                            <div class="box-container">
+                                <div class="box box1 button"> 
+                                    <div class="text"> 
+                                        <h2 class="topic-heading">Pressure</h2> 
+                                        <h2 class="topic">13</h2> 
+                                    </div> 
+                                    <img src= "assets/img/pressure.webp"
+                                        alt="Views"> 
+                                </div>
+                                <div class="box box2 button"> 
+                                    <div class="text"> 
+                                        <h2 class="topic-heading">Oxygen</h2> 
+                                        <h2 class="topic">30.01</h2> 
+                                    </div> 
+                                    <img src= "assets/img/oxygen.webp"
+                                        alt="Views"> 
+                                </div>
                             </div>
-                            <div class="box box2 button"> 
-                                <div class="text"> 
-                                    <h2 class="topic-heading">Oxygen</h2> 
-                                    <h2 class="topic">30.01</h2> 
-                                </div> 
-                                <img src= "assets/img/oxygen-4-48.png"
-                                    alt="Views"> 
+                            <div class="box-container" style="padding-top: 10px;">
+                                <div class="box box3 button"> 
+                                    <div class="text"> 
+                                        <h2 class="topic-heading">Humidity</h2> 
+                                        <h2 class="topic">13</h2> 
+                                    </div> 
+                                    <img src="assets/img/humidity.webp"
+                                        alt="Views"> 
+                                </div>
+                                <div class="box box4 button pink"> 
+                                    <div class="text"> 
+                                        <h2 class="topic-heading">Temperature</h2> 
+                                        <h2 class="topic">30.01</h2> 
+                                    </div> 
+                                    <img src= "assets/img/temperature.webp"
+                                        alt="Views"> 
+                                </div>
                             </div>
                         </div>
-                        <div class="box-container" style="padding-top: 10px;">
-                            <div class="box box3 button"> 
-                                <div class="text"> 
-                                    <h2 class="topic-heading">Humidity</h2> 
-                                    <h2 class="topic">13</h2> 
-                                </div> 
-                                <img src="assets/img/humidity-6-48.png"
-                                    alt="Views"> 
-                            </div>
-                            <div class="box box4 button pink"> 
-                                <div class="text"> 
-                                    <h2 class="topic-heading">Temperature</h2> 
-                                    <h2 class="topic">30.01</h2> 
-                                </div> 
-                                <img src= "assets/img/temperature-8-48.png"
-                                    alt="Views"> 
-                            </div>
-                        </div>
-                        <div class="col-xs-6" style="padding-top:20px;width:100% !important">
+                        <div class="block" id="instructionsBlock">
                           <div class="instructions">
-                            <ul style="padding-top:10px"> <span>Instructions:</span>
-                                <br/>
-                                <li class="li-instruct">
-                                   1. Run safety check for Ki Spaceship to be cleared for take off
-                                </li>
-                                <li class="li-instruct">
-                                   2. Check fuel levels in engine are full
-                                </li>
-                                <li class="li-instruct" style="text-align: center;">
-                                   3. Check booster rockets are fully charged
-                                </li>
-                                <li class="li-instruct">
-                                   4. Check the navigation system to have clear flight path to Home on Planet Earth
-                                </li>
-                                <li class="li-instruct">
-                                   5. Switch on super beam lights
-                                </li>
-                                <li class="li-instruct">
-                                   6. Start the ignition for launch boosters
-                                </li>
-                                <li class="li-instruct">
-                                   7. Launch
-                                </li>
-                             </ul>
-                             <button class="btn btn-xl btn-sf btnInstruct">cadarnhau cyfarwyddiadau</button>
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title">Instructions</h2>
                             </div>
-                        </div>
-                        <div class="col-xs-6" style="padding-top:20px;width:100% !important">
-                           
+                            <div class="block-content">
+                                <ul style="padding-top:5px">
+                                    <li class="li-instruct">
+                                       1. Run safety check for Ki Spaceship to be cleared for take off
+                                    </li>
+                                    <li class="li-instruct">
+                                       2. Check fuel levels in engine are full
+                                    </li>
+                                    <li class="li-instruct" style="text-align: center;">
+                                       3. Check booster rockets are fully charged
+                                    </li>
+                                    <li class="li-instruct">
+                                       4. Check the navigation system to have clear flight path to Home on Planet Earth
+                                    </li>
+                                    <li class="li-instruct">
+                                       5. Switch on super beam lights
+                                    </li>
+                                    <li class="li-instruct">
+                                       <s>6. Start the ignition for launch boosters</s>
+                                    </li>
+                                    <li class="li-instruct">
+                                       7. Launch
+                                    </li>
+                                 </ul>
+                                 <button class="btn btn-xl btn-sf btnInstruct">cadarnhau cyfarwyddiadau</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Left Column -->
                     <div class="col-sm-6 col-lg-3 col-lg-pull-6">
                         <!-- Environment -->
-                        <div class="block">
-                            <div class="block-header overflow-hidden">
-                                <h2 class="block-title">Environment</h2>
+                        <div class="block" id="environmentBlock">
+                            <div class="environment">
+                                <div class="block-header overflow-hidden">
+                                    <h2 class="block-title">Environment</h2>
+                                </div>
+                                <div class="block-content">
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center">
+                                            <div class="js-pie-chart pie-chart" data-percent="50" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                                <span class="font-s16 font-w600">PSI</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <div class="text-uppercase font-w600 text-white-op">Pressure</div>
+                                            <div class="font-s36 font-w300">15.65</div>
+                                        </div>
+                                    </div>
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center">
+                                            <div class="js-pie-chart pie-chart" data-percent="29" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                                <span class="font-s16 font-w600">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <div class="text-uppercase font-w600 text-white-op">Oxygen</div>
+                                            <div class="font-s36 font-w300">29.15</div>
+                                        </div>
+                                    </div>
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center" >
+                                            <div class="js-pie-chart pie-chart" data-percent="60" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
+                                                <span class="font-s16 font-w600">C&deg;</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8" >
+                                            <div class="text-uppercase font-w600 text-white-op">Temperature</div>
+                                            <div class="font-s36 font-w300">5.3</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="block-content">
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center">
-                                        <div class="js-pie-chart pie-chart" data-percent="50" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
-                                            <span class="font-s16 font-w600">PSI</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="text-uppercase font-w600 text-white-op">Pressure</div>
-                                        <div class="font-s36 font-w300">15.65</div>
-                                    </div>
-                                </div>
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center">
-                                        <div class="js-pie-chart pie-chart" data-percent="29" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
-                                            <span class="font-s16 font-w600">%</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="text-uppercase font-w600 text-white-op">Oxygen</div>
-                                        <div class="font-s36 font-w300">29.15</div>
-                                    </div>
-                                </div>
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center" >
-                                        <div class="js-pie-chart pie-chart" data-percent="60" data-line-width="5" data-size="65" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="rgba(255, 255, 255, .1)">
-                                            <span class="font-s16 font-w600">C&deg;</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8" >
-                                        <div class="text-uppercase font-w600 text-white-op">Temperature</div>
-                                        <div class="font-s36 font-w300">5.3</div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <!-- END Environment -->
 
                         <!-- Planets -->
-                        <div class="block">
-                            <div class="block-header overflow-hidden">
-                                <h2 class="block-title">Planets</h2>
-                            </div>
-                            <div class="block-content">
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="100">
-                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="20" data-size="45" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#c07635">
-                                            <span class="font-s16 font-w600"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8 "  data-class="animated fadeInRight" data-timeout="400">
-                                        <div class="text-uppercase font-w600 text-white-op">Mars</div>
-                                        <div class="font-s36 font-w300">1.67 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
-                                    </div>
+                        <div class="block" id="planetsBlock">
+                            <div class="planets">
+                                <div class="block-header overflow-hidden">
+                                    <h2 class="block-title">Planets</h2>
                                 </div>
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="200">
-                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="22" data-size="50" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#3673cc">
-                                            <span class="font-s16 font-w600"></span>
+                                <div class="block-content">
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="100">
+                                            <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="20" data-size="45" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#c07635">
+                                                <span class="font-s16 font-w600"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 "  data-class="animated fadeInRight" data-timeout="400">
+                                            <div class="text-uppercase font-w600 text-white-op">Mars</div>
+                                            <div class="font-s36 font-w300">1.67 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-8 " data-class="animated fadeInRight" data-timeout="500">
-                                        <div class="text-uppercase font-w600 text-white-op">Earth</div>
-                                        <div class="font-s36 font-w300">1.62 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
-                                    </div>
-                                </div>
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="300">
-                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="30" data-size="70" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#f7c880">
-                                            <span class="font-s16 font-w600"></span>
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="200">
+                                            <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="22" data-size="50" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#3673cc">
+                                                <span class="font-s16 font-w600"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 " data-class="animated fadeInRight" data-timeout="500">
+                                            <div class="text-uppercase font-w600 text-white-op">Earth</div>
+                                            <div class="font-s36 font-w300">1.62 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-8 "data-class="animated fadeInRight" data-timeout="600">
-                                        <div class="text-uppercase font-w600 text-white-op">Saturn</div>
-                                        <div class="font-s36 font-w300">2.22 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center " data-class="animated fadeInLeft" data-timeout="300">
+                                            <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="30" data-size="70" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#f7c880">
+                                                <span class="font-s16 font-w600"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 "data-class="animated fadeInRight" data-timeout="600">
+                                            <div class="text-uppercase font-w600 text-white-op">Saturn</div>
+                                            <div class="font-s36 font-w300">2.22 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -243,31 +252,36 @@
                     <!-- END Left Column -->
 
                     <!-- Right Column -->
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="timer">Bugs remaining: <span id="bugCount">3</span></div>
-                        <div class="timer-countdown flikr" id="countup">
-                            00:00:00
+                    <div class="col-sm-6 col-lg-3" style="justify-content: space-evenly;">
+                        <div class="timeAndBugs" style="height: 100%;">
+                            <div class="timer">Bugs remaining: <span id="bugCount">4</span></div>
+                            <div class="timer-countdown flikr" id="countup">
+                                00:00:00
+                            </div>
                         </div>
-                        <!-- <div class="timer1">Spacecraft Design1</div> -->
-                        <div class="space">    
-                            <div class="divb" id="top-left"></div>
-                            <div class="divb" id="top-right"></div>
-                            <div class="divb" id="bottom-left"></div>
-                            <div class="divb" id="bottom-right"></div>                         
-                        </div> 
+                        <div class="timer1">
+                            <div class="space">    
+                                <div class="divb" id="top-left"></div>
+                                <div class="divb" id="top-right"></div>
+                                <div class="divb" id="bottom-left"></div>
+                                <div class="divb" id="bottom-right"></div>                         
+                            </div> 
+                        </div>
+                        
                     </div>
                     <!-- END Right Column -->
                 </div>
                 <!-- END Columns -->
 
-                <!-- Page Footer -->
-                <div class="block">
-                    <div class="block-content block-content-full font-s12 text-center ">
-                        2024 &copy; KI Reply
-                    </div>
-                </div>
-                <!-- END Page Footer -->
+                
             </main>
+            <!-- Page Footer -->
+            <footer class="block" id="footerBlock">
+                <div class="block-content block-content-full font-s12 text-center ">
+                    2024 &copy; KI Reply
+                </div>
+            </footer>
+            <!-- END Page Footer -->
             <!-- END Main Content -->
         </div>
         <!-- END Page Container -->
@@ -300,7 +314,7 @@
                     // Calculate the time that has already passed
                     var targetTime = parseInt(localStorage.getItem('targetTime'));
                     var currentTime = new Date().getTime();
-                    var timePassed = currentTime - targetTime + 10 * 60 * 1000; // Add the original 5 minutes to get the time passed
+                    var timePassed = currentTime - targetTime + 10 * 60 * 1000; // Add the original 10 minutes to get the time passed
 
                     Exchange.pauseCounter();
                     Exchange.updateGamerTime(timePassed, true);
