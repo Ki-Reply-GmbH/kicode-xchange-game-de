@@ -298,16 +298,12 @@ var Exchange = function() {
             if (Time === "") {
                 item["Time"] = "";
             } else {
-                // Convert timePassed from milliseconds to minutes, seconds, and milliseconds
-                var minutes = Math.floor(Time / 60000);
-                var seconds = ((Time % 60000) / 1000).toFixed(0);
-                var milliseconds = Time % 1000;
-
-                // Pad minutes and seconds with leading zeros if they are less than 10
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                item["Time"] = minutes + ":" + seconds + ":" + milliseconds;
+                // Calculate time taken to complete the game
+                var startMinutes = 10;
+                var time_left = localStorage.getItem('keepTime');
+                
+                var time_taken = Exchange.calculateTimeDifference(time_left, startMinutes);
+                item["Time"] = time_taken;
             }
 
             item["Finished"] = Finished;
