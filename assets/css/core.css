@@ -201,14 +201,15 @@ ul span{
     margin-bottom: 15px;
 }
 
-.li-instruct
-{
-    text-align: left;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    list-style-type: none;
-    font-family: 'Raleway', sans-serif;
-    font-size:20px
+ .li-instruct {
+    text-align: left; /* Ensures text is aligned to the left */
+    line-height: 1.8; /* Improves readability by increasing line height */
+    margin-bottom: 1.5rem; /* Adds space below each list item */
+    list-style-type: none; /* Removes bullet points for a cleaner look */
+    font-family: 'Raleway', sans-serif; /* Sets a consistent font */
+    font-size: 20px; /* Sets a readable font size */
+    padding-left: 20px; /* Adds padding to align text away from the edge */
+ }
 }
 
 .instructions {
