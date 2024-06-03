@@ -80,12 +80,20 @@ ul span{
     background: rgba(255, 255, 255, .15);
 }
 
-.btnInstruct
-{
+.btnInstruct {
     float: right;
     border-radius: 15px;
-    margin-right:50px;
-    width:auto;
+    margin-right: 50px;
+    width: auto;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: rgba(255, 255, 255, .75);
+    border: 2px solid rgba(255, 255, 255, .25);
+    border-left-width: 4px;
+    border-right-width: 4px;
+    background: transparent;
 }
 
 .timer
