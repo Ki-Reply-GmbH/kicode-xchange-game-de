@@ -68,24 +68,19 @@ ul span{
 }
 
 .btn.btn-sf:hover,
-.btn.btn-sf:focus {
-    color: rgba(255, 255, 255, 1);
-    border-color: rgba(255, 255, 255, 1);
-    outline: 0;
-}
-
+.btn.btn-sf:focus,
 .btn.btn-sf:active {
-    color: #fff;
-    border-color: #fff;
-    background: rgba(255, 255, 255, .15);
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
-.btnInstruct
-{
+.btnInstruct {
+    background-color: #4CAF50; /* Green */
+    color: white;
     float: right;
     border-radius: 15px;
-    margin-right:50px;
-    width:auto;
+    margin-right: 50px;
+    width: auto;
 }
 
 .timer
@@ -444,7 +439,7 @@ input[type="email"] {
 }
 
 .popUpButton:hover {
-    background-color: lightgray;
+    background-color: #45a049; /* Darker green */
 }
 
 /* Easy Pie Chart */
