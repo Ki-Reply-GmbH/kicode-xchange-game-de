@@ -332,3 +332,52 @@
         </script>
     </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+<input type="file" id="imageUpload" accept="image/jpeg, image/png, image/gif">
+<img id="displayImage" style="max-width: 100%; max-height: 100%;">
+<button onclick="rotateImageLeft()">Rotate Left</button>
+<button onclick="rotateImageRight()">Rotate Right</button>
+<script>
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = document.getElementById('displayImage');
+        img.src = e.target.result;
+        EXIF.getData(img, function() {
+            var orientation = EXIF.getTag(this, 'Orientation');
+            adjustImageOrientation(img, orientation);
+        });
+    };
+    reader.readAsDataURL(file);
+});
+
+function adjustImageOrientation(img, orientation) {
+    var rotateClass = '';
+    switch(orientation) {
+        case 3:
+            rotateClass = 'rotate-180';
+            break;
+        case 6:
+            rotateClass = 'rotate-90';
+            break;
+        case 8:
+            rotateClass = 'rotate-270';
+            break;
+        default:
+            rotateClass = '';
+            break;
+    }
+    img.className = rotateClass;
+}
+
+function rotateImageLeft() {
+    var img = document.getElementById('displayImage');
+    img.style.transform += 'rotate(-90deg)';
+}
+
+function rotateImageRight() {
+    var img = document.getElementById('displayImage');
+    img.style.transform += 'rotate(90deg)';
+}
+</script>
