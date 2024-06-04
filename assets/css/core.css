@@ -51,33 +51,30 @@ ul span{
     color: #e74c3c;
 }
 
-.btn.btn-xl {
-    padding: 14px 12px;
-}
-
-.btn.btn-sf {
-    text-align: left;
+.btn {
+    text-align: center;
     font-weight: 600;
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
     color: rgba(255, 255, 255, .75);
     border: 2px solid rgba(255, 255, 255, .25);
-    border-left-width: 4px;
-    border-right-width: 4px;
     background: transparent;
+    padding: 10px 12px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.btn.btn-sf:hover,
-.btn.btn-sf:focus {
+.btn:hover,
+.btn:focus {
     color: rgba(255, 255, 255, 1);
     border-color: rgba(255, 255, 255, 1);
-    outline: 0;
+    background-color: rgba(255, 255, 255, .15);
+    outline: none;
 }
 
-.btn.btn-sf:active {
+.btn:active {
     color: #fff;
     border-color: #fff;
-    background: rgba(255, 255, 255, .15);
+    background-color: rgba(255, 255, 255, .25);
 }
 
 .btnInstruct
