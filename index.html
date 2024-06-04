@@ -304,8 +304,9 @@
                     Exchange.newGamePopup();
                 }
                 
-                if(localStorage.getItem('targetTime') !== null && !Exchange.userWon)
+                if(localStorage.getItem('targetTime') !== null && !Exchange.userWon && Exchange.checkWinningConditions())
                 {
+                    Exchange.userWon = true;
                     Exchange.updateTimer();
                 }
 
