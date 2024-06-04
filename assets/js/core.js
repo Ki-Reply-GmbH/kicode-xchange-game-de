@@ -1,3 +1,4 @@
+
 var Exchange = function() {
 
     let bugLeft = '3';                
